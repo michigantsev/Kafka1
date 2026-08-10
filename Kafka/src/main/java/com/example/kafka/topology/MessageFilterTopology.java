@@ -40,7 +40,8 @@ public class MessageFilterTopology {
                 .leftJoin(blockedUsersGlobalTable,
                         (key, message) -> message.recipientId,
                         (message, userBlocking) -> {
-                            if (userBlocking != null && message.userId.equals(userBlocking.blockedUserId)) {
+                            if (userBlocking != null && userBlocking.blockedUserId != null
+                                    && userBlocking.blockedUserId.contains(message.userId)) {
                                 System.out.println("[MessageFilterTopology] Метка блокировки для пользователя: " + message.userId);
                                 Message blockedMarker = new Message();
                                 blockedMarker.userId = "BLOCKED";

@@ -11,6 +11,8 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Properties;
 
 @Service
@@ -36,7 +38,7 @@ public class ProducerService {
         try {
             UserBlocking block = new UserBlocking();
             block.userId = "user_2";
-            block.blockedUserId = "user_1";
+            block.blockedUserId = new HashSet<>(Arrays.asList("user_1"));
             block.timestamp = System.currentTimeMillis();
 
             System.out.println("[Producer] Отправка блокировки: user_2 забанил user_1");
