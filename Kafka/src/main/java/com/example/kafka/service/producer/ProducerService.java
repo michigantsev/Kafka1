@@ -26,6 +26,7 @@ public class ProducerService {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class.getName());
         props.put(ProducerConfig.ACKS_CONFIG, "all");
         props.put(ProducerConfig.RETRIES_CONFIG, 5);
+        props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
 
         this.producer = new KafkaProducer<>(props);
     }
@@ -40,6 +41,9 @@ public class ProducerService {
 
             System.out.println("[Producer] Отправка блокировки: user_2 забанил user_1");
             producer.send(new ProducerRecord<>("blocked_users", "user_2", block));
+
+            System.out.println("[Producer] Отправка запрещенного слова: яндекс");
+            producer.send(new ProducerRecord<>("forbidden_words", "яндекс", "яндекс"));
             producer.flush();
 
             Thread.sleep(2000);
