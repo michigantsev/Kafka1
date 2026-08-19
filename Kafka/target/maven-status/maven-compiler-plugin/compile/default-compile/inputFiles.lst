@@ -1,0 +1,6 @@
+/app/src/main/java/com/example/kafka/KafkaApp.java
+/app/src/main/java/com/example/kafka/model/Product.java
+/app/src/main/java/com/example/kafka/service/consumer/BaseConsumer.java
+/app/src/main/java/com/example/kafka/service/consumer/BatchMessageConsumerService.java
+/app/src/main/java/com/example/kafka/service/consumer/SingleMessageConsumerService.java
+/app/src/main/java/com/example/kafka/service/producer/ProducerService.java

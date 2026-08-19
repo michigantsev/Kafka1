@@ -1,0 +1,6 @@
+com/example/kafka/KafkaApp.class
+com/example/kafka/service/consumer/SingleMessageConsumerService.class
+com/example/kafka/service/consumer/BaseConsumer.class
+com/example/kafka/service/consumer/BatchMessageConsumerService.class
+com/example/kafka/service/producer/ProducerService.class
+com/example/kafka/model/Product.class
